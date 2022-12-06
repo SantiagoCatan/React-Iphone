@@ -1,24 +1,28 @@
 import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
+import './NavBar.scss';
 
 const NavBar =() =>{
     const categories =[
-        {name: 'inicio'},
-        {name:'Ventas de equipo'},
-        {name:'Reparaciones'},];
+        {name:'inicio',href:'/'},
+        {name:'Iphones',href:"/Iphones"},
+        {name:'Ipads',href:"/Ipads"},
+        {name:'MacBooks' ,href:"/Macbooks",}];
 return(
-    <div>
+    
+    <div className='navbar'>
         <nav>
            {categories.map((category,index)=>{
+            const newkey =`menus-${category}-${index}`
                 return(
-                    <a href="#" key={index}>
+                    <a href={category.href} key={newkey} className='navbar__menu'>
                         {category.name}
                     </a>
                 );
            })}
+           
         </nav>
-
-         <CartWidget/>
+        <div className='carrito'><button><CartWidget/></button></div>
     </div>
     );
 };

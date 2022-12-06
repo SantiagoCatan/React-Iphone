@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .navbar__menu{
+        text-decoration: none;
+        margin: 10px;
+        color:black;
+        font-size:2em ;
+    }
+   
