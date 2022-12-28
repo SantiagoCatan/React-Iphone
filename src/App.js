@@ -1,23 +1,27 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './conteiner/ItemListContainer/ItemListContainer';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailConteiner';
+import Home from './components/Home/Home';
 import CartWidget from './components/CartWidget/CartWidget';
-import ItemList from './conteiner/ItemListContainer/conteinerProductos/ItemList';
+import { listaDeProductos } from './utiles';
+
+
+
 function App() {
   return (
 
   <BrowserRouter className='app'>
-  <NavBar />
+  <NavBar/>
   <Routes>
-
+  <Route exact path='/' element={< Home/>}/>
+    <Route exact path='/items/:categoryId' element={< ItemListContainer/>}/>
+    <Route exact path='/items/:productoid' element={<ItemDetailConteiner/>}/>
     <Route exact path='/CarWidget' element={< CartWidget/>}/>
-    <Route exact path='/ItemList' element={<ItemList/>}/>
+
   </Routes>
-  <ItemListContainer />
   </BrowserRouter> 
   );
-
 };
-
 export default App;
