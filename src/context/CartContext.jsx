@@ -8,6 +8,7 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
     const [cart, setcart] = useState([]);
+    const [totalPrecio, setTotalPrecio] = useState([])
 
     const agregarProducto = (item) => {
         const nuevoCart = cart.filter(producto => producto.id !== item.id);
@@ -20,6 +21,15 @@ const CartProvider = ({ children }) => {
 
     const eliminarProducto = (id) => setcart(cart.filter(producto => producto.id != id)); // elimino producto en especifico
 
+    const calcularPrecio =()=>{
+        let total= 0;
+        cart.forEach(element => {
+            total+= element.precio
+        });
+        setTotalPrecio(total)
+    }
+
+
     return (
         <CartContext.Provider value={
             {
@@ -27,7 +37,9 @@ const CartProvider = ({ children }) => {
                 busquedaCart,
                 eliminarProducto,
                 agregarProducto,
-                cart
+                cart,
+                totalPrecio,
+                calcularPrecio
             }
         }>
             {children}

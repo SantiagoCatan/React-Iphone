@@ -51,7 +51,6 @@ function ItemListContainer(props){
           Equipos sellados con 1 año de garantia
           </Card.Text>
           <Button variant="primary" onClick={()=>navigate(`/detail/${p.id}`)}>Detalles</Button>
-          <Button variant="primary"  >Comprar</Button>
         </Card.Body>
       </Card>
     </div>;
