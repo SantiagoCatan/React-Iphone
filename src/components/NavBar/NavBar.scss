@@ -1,16 +1,33 @@
 .navbar{
+    position: relative;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: gray;
+    margin: 13px auto 0px;
+    width: 660px;
+    height: 100px;
+    border-radius: 8px;
     }
+
+
 
     .Navbar_inicio{
+        
         text-decoration: none;
+        text-transform:uppercase;
         margin: 5px;
-        color:black;
-        font-size: 2em ;
+        color:rgb(190, 179, 179);
+        font-size: 15px ;
+        line-height: 50px;
+        position: relative;
+        z-index:1 ;
+        display: inline-block;
+        text-align: center;
 
+       
     }
+
+
    

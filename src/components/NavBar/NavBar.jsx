@@ -3,10 +3,15 @@ import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.scss';
 import { Link } from 'react-router-dom';
 import { listaDeProductos } from '../../utiles';
+import { useContext } from 'react';
+import { ThemeProvider } from 'react-bootstrap';
+import { ThemeContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const NavBar =() =>{
+    const navigate = useNavigate();
     const Inicio =[{name:'inicio',href:'/'}];
 
     const categories =[
@@ -16,10 +21,11 @@ const NavBar =() =>{
         {name:'Ipads',href:"/items/Ipads", id:"Ipads"}];
         
 return(
-    <div className='navbar'>
+    <div className='navbar' style={{backgroundColor:'grey'}}>
         {
             Inicio.map((menu)=>{
-            return <Link className='Navbar_inicio' to={menu.href}>{menu.name}</Link>}
+                const newkey =`${Inicio.id}`;
+            return <Link className='Navbar_inicio' to={menu.href} key={newkey}>{menu.name}</Link>}
             )
             }
         
@@ -32,7 +38,7 @@ return(
            })
         }
 
-        <div className='carrito'><button><CartWidget/></button></div>
+        <div className='carrito'><button onClick={()=>navigate('/Carrito')}><CartWidget/></button></div>
     </div>)
 };
 
